@@ -2,10 +2,10 @@
 <ul>
   <% @activities.each do |activity| %>
     <li>
-      <%= activity.title %>
-      <p>
-      <%= activity.description %>
-      </p>
+      <a href="/activities/<%= activity.id %>">
+        <%= activity.title %>
+      </a>
     </li>
+    <p><%= activity.description %></p>
   <% end %>
 </ul>
