@@ -1,1 +1,11 @@
 <h1>Activities</h1>
+<ul>
+  <% @activities.each do |activity| %>
+    <li>
+      <%= activity.title %>
+      <p>
+      <%= activity.description %>
+      </p>
+    </li>
+  <% end %>
+</ul>
