@@ -4,35 +4,31 @@ respond_to? :html, :json
 
     def initialize
         @lives = 7
-
-        @board = setup_board
+        @words = ["chrysalis", "zap", "hundred", "ruby", "python", "hippopotamus",]
+        @secret_word = @words.sample
+        @board = [" _ "] * @secret_word.size
     end
 
-    def words
-        @words = [
-            "chrysalis",
-            "zap",
-            "hundred",
-            "ruby",
-            "python",
-            "hippopotamus",
-        ]
-    end
+    # def words
+    #     @words = [
+    #         "chrysalis",
+    #         "zap",
+    #         "hundred",
+    #         "ruby",
+    #         "python",
+    #         "hippopotamus",
+    #     ]
+    # end
 
-    #define secret_word
-    def secret_word
-        @secret_word = words.sample
-    end
-
-    #define board setup
-    def setup_board
-        ["_"] * secret_word.size
-    end
+    # define secret_word
+    # def secret_word
+    #     @secret_word = @words.sample
+    # end
 
     #board state
-    def board_state
-        @board.join(" ")
-    end
+    # def board_state
+    #     @board.join(" ")
+    # end
 
     #update board
     def update_board(guess)
@@ -52,20 +48,20 @@ respond_to? :html, :json
 
     #define guess logic
     def make_guess
-        gets.chomp
+        params[:letter]
     end
 
-    #win logic
+    # win logic
     def won?
         @board.join("") == @secret_word
     end
 
-    #Start function
+    # Start function
     def start
         puts "Welcome to Hangman"
         while @lives > 0 && !won?
             puts "You have #{@lives} lives left. Please make a guess: "
-            puts board_state
+            # puts board_state
             guess = make_guess
             update_board(guess)
         end

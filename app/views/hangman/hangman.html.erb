@@ -1,12 +1,11 @@
 <h1>Hangman</h1>
 <p>Try to guess the secret word by typing single letters!</p>
 
-<%
-i=0  
-for i in "a".."z" 
-%>
 
-<li>
-<%= link_to i, { :controller => "hangman", :words => "words", } %>
-</li>
-<%end%>
+<%= form_with do |form| %>
+    <%= form.label :letter, "Type in a letter" %>
+    <%= form.text_field :letter %>
+    <%= form.submit "Submit" %>
+<% end %>
+<%= @secret_word %><br>
+<%= @board.join %>
