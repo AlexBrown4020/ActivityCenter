@@ -29,6 +29,7 @@ respond_to? :html, :json
     # def board_state
     #     @board.join(" ")
     # end
+    
 
     #update board
     def update_board(guess)
