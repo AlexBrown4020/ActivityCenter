@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: "activities#index"
   get "/activities", to: "activities#index"
-  get "/activities/:id", to: "activities#show"
+  get "/activities/1", to: "tictactoe#tictactoe"
+  get "/activities/2", to: "hangman#hangman"
 
 end
