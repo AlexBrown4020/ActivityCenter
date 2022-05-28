@@ -1,11 +1,29 @@
 <h1>Hangman</h1>
 <p>Try to guess the secret word by typing single letters!</p>
 
-<%= form_with do |form| %>
-    <%= form.text_field :letter %>
-    <%= form.submit "Submit" %>
 
-<% end %>
 
-<%= @secret_word %><br>
-<%= @board.join %>
+<div class="nav-nav tabs">
+<ul class="breadcrumb">
+
+<%
+for i in [*'a'..'z']  
+%>
+<button>
+<%= i %>
+</button>
+<span class="divider">         </span>
+
+<%end%>
+
+</ul>
+</div>
+<%= @lives %>
+<%= session[:secret_word] %><br>
+<%= session[:board] %>
+
+<script>
+process_letter = (letter) => {
+ console.log(letter)
+}
+</script>

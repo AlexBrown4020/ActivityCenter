@@ -3,11 +3,36 @@ class HangmanController < ApplicationController
 respond_to? :html, :json
 
     def initialize
-        @lives = 7
+        session[:lives] = 7
         @words = ["chrysalis", "zap", "hundred", "ruby", "python", "hippopotamus",]
-        @secret_word = @words.sample
-        @board = [" _ "] * @secret_word.size
+        session[:secret_word] = @words.sample
+        session[:board] = [" _ "] * session[:secret_word].size
+        @abc = "New game started    "<< session[:user_string]
+            respond_with @abc
     end
+
+    # def board
+
+    # end
+
+    # def process_letter
+    #     @id = params[:id]
+    #     puts @id
+    # end
+    
+    # def create
+    #     @letter = Letter.new(letter_params)
+
+    #     if @letter.save
+    #         if request.xhr?
+    #             render json: {success: true}
+    #         else
+    #             redirect_to @letter, notice: "Letter was sent"
+    #         end
+    #     else
+    #         render :new
+    #     end
+    # end
 
     # def words
     #     @words = [

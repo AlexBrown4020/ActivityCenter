@@ -23,3 +23,19 @@ Things you may want to cover:
 
 * ...
 
+<%= form_for(letter, remote: true) do |form| %>
+    <%= form.check_box :accepted %>
+    <%= form.submit "Submit", :class => "button primary small" %>
+<% end %>
+
+" data_letter="<%= i%>>" 
+
+<%
+=begin%>
+ <%= link_to i, :remote => "true", :name => i %> 
+<%
+=end%>
+
+<button  type="button" onclick=process_letter(i)>
+    <%= i %>
+</button> 
