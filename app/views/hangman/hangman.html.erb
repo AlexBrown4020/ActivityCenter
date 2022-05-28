@@ -7,9 +7,9 @@
 <ul class="breadcrumb">
 
 <%
-for i in [*'a'..'z']  
+for i in [*'a'..'z']
 %>
-<button>
+<button onclick="processLetter(<%= i %>)">
 <%= i %>
 </button>
 <span class="divider">         </span>
@@ -18,12 +18,12 @@ for i in [*'a'..'z']
 
 </ul>
 </div>
-<%= @lives %>
-<%= session[:secret_word] %><br>
-<%= session[:board] %>
+
+<%= @board.join %>
 
 <script>
-process_letter = (letter) => {
- console.log(letter)
+function processLetter(letter) {
+
+    return letter
 }
 </script>
